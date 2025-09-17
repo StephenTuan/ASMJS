@@ -1,0 +1,18 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Smartphone body -->
+  <rect x="300" y="100" width="200" height="400" rx="20" fill="#f5f5f5" />
+  
+  <!-- Screen -->
+  <rect x="310" y="110" width="180" height="380" rx="15" fill="#000" />
+  
+  <!-- Camera bar -->
+  <rect x="300" y="130" width="200" height="40" rx="20" fill="#333" />
+  <circle cx="350" cy="150" r="10" fill="#555" stroke="#777" stroke-width="2" />
+  <circle cx="380" cy="150" r="10" fill="#555" stroke="#777" stroke-width="2" />
+  
+  <!-- Google G logo -->
+  <text x="400" y="300" font-family="Arial" font-weight="bold" font-size="60" fill="#4285F4" text-anchor="middle">G</text>
+  
+  <!-- Product name -->
+  <text x="400" y="520" font-family="Arial" font-size="20" fill="#333" text-anchor="middle">Google Pixel 7 Pro</text>
+</svg>

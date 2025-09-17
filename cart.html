@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng - TechStore</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- JavaScript sẽ được tải ở cuối trang -->
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>TechStore</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="products.html">Sản phẩm</a></li>
+                    <li><a href="cart.html" class="active">Giỏ hàng</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="container">
+            <h2 class="section-title">Giỏ hàng của bạn</h2>
+            
+            <div id="cart-container">
+                <!-- Cart items will be loaded here by JavaScript -->
+            </div>
+            
+            <div class="cart-summary" id="cart-summary">
+                <!-- Cart summary will be loaded here by JavaScript -->
+            </div>
+            
+            <div class="cart-actions">
+                <a href="products.html" class="btn">Tiếp tục mua sắm</a>
+                <a href="checkout.html" class="btn btn-primary" id="checkout-btn">Thanh toán</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>Về TechStore</h3>
+                    <p>TechStore là cửa hàng cung cấp các sản phẩm công nghệ chất lượng cao với giá cả hợp lý.</p>
+                    <div class="contact">
+                        <span><i class="fas fa-phone"></i> &nbsp; 123-456-789</span>
+                        <span><i class="fas fa-envelope"></i> &nbsp; info@techstore.com</span>
+                    </div>
+                    <div class="socials">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Liên kết nhanh</h3>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="products.html">Sản phẩm</a></li>
+                        <li><a href="cart.html">Giỏ hàng</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact-form">
+                    <h3>Liên hệ với chúng tôi</h3>
+                    <form action="contact.html" method="post">
+                        <input type="email" name="email" class="contact-input" placeholder="Email của bạn...">
+                        <textarea name="message" class="contact-input" placeholder="Tin nhắn của bạn..."></textarea>
+                        <button type="submit" class="btn-small">Gửi</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 TechStore. Tất cả các quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/products.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

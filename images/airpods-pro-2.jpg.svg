@@ -1,0 +1,17 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- AirPods Pro case -->
+  <rect x="300" y="200" width="200" height="150" rx="30" fill="#fff" stroke="#e0e0e0" stroke-width="2" />
+  
+  <!-- Case lid line -->
+  <line x1="300" y1="250" x2="500" y2="250" stroke="#e0e0e0" stroke-width="2" />
+  
+  <!-- LED indicator -->
+  <circle cx="400" cy="230" r="5" fill="#4CAF50" />
+  
+  <!-- AirPods -->
+  <path d="M350,300 Q350,350 370,350 L380,350 Q400,350 400,300 Z" fill="#fff" stroke="#e0e0e0" stroke-width="2" />
+  <path d="M450,300 Q450,350 430,350 L420,350 Q400,350 400,300 Z" fill="#fff" stroke="#e0e0e0" stroke-width="2" />
+  
+  <!-- Product name -->
+  <text x="400" y="400" font-family="Arial" font-size="20" fill="#333" text-anchor="middle">Apple AirPods Pro 2</text>
+</svg>

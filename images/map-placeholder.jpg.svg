@@ -1,0 +1,24 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Map background -->
+  <rect x="0" y="0" width="800" height="400" fill="#e9e9e9" />
+  
+  <!-- Roads -->
+  <line x1="0" y1="100" x2="800" y2="100" stroke="#fff" stroke-width="20" />
+  <line x1="0" y1="300" x2="800" y2="300" stroke="#fff" stroke-width="20" />
+  <line x1="200" y1="0" x2="200" y2="400" stroke="#fff" stroke-width="15" />
+  <line x1="600" y1="0" x2="600" y2="400" stroke="#fff" stroke-width="15" />
+  
+  <!-- Buildings -->
+  <rect x="250" y="150" width="100" height="100" fill="#ccc" />
+  <rect x="400" y="150" width="150" height="100" fill="#aaa" />
+  <rect x="250" y="50" width="80" height="40" fill="#ddd" />
+  <rect x="450" y="50" width="100" height="40" fill="#bbb" />
+  
+  <!-- Store location -->
+  <circle cx="400" cy="200" r="15" fill="#f44336" />
+  <text x="400" y="200" font-family="Arial" font-size="12" fill="#fff" text-anchor="middle" dominant-baseline="middle">TechStore</text>
+  
+  <!-- Map label -->
+  <rect x="20" y="20" width="120" height="40" rx="5" fill="#fff" opacity="0.8" />
+  <text x="80" y="45" font-family="Arial" font-size="16" fill="#333" text-anchor="middle">Bản đồ</text>
+</svg>

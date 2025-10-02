@@ -9,9 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Xác định trang hiện tại và gọi hàm tương ứng
     const currentPage = getCurrentPage();
     loadPageContent(currentPage);
-    
-    // Khởi tạo đồng hồ đếm ngược cho flash sale
-    initializeCountdown();
 });
 
 // Hàm xác định trang hiện tại
@@ -823,47 +820,4 @@ function initializeMap() {
             console.error('Lỗi khi lấy vị trí:', error);
         });
     }
-}
-
-// Hàm khởi tạo đồng hồ đếm ngược
-function initializeCountdown() {
-    const hoursElement = document.getElementById('hours');
-    const minutesElement = document.getElementById('minutes');
-    const secondsElement = document.getElementById('seconds');
-    
-    if (!hoursElement || !minutesElement || !secondsElement) return;
-    
-    // Thiết lập thời gian kết thúc (2 giờ từ thời điểm hiện tại)
-    const endTime = new Date();
-    endTime.setHours(endTime.getHours() + 2);
-    
-    // Cập nhật đồng hồ đếm ngược mỗi giây
-    function updateCountdown() {
-        const currentTime = new Date();
-        const diff = endTime - currentTime;
-        
-        // Nếu đã hết thời gian
-        if (diff <= 0) {
-            hoursElement.textContent = '00';
-            minutesElement.textContent = '00';
-            secondsElement.textContent = '00';
-            return;
-        }
-        
-        // Tính toán giờ, phút, giây còn lại
-        const hours = Math.floor(diff / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-        
-        // Cập nhật giao diện
-        hoursElement.textContent = hours < 10 ? '0' + hours : hours;
-        minutesElement.textContent = minutes < 10 ? '0' + minutes : minutes;
-        secondsElement.textContent = seconds < 10 ? '0' + seconds : seconds;
-    }
-    
-    // Cập nhật ngay lập tức
-    updateCountdown();
-    
-    // Cập nhật mỗi giây
-    setInterval(updateCountdown, 1000);
 }

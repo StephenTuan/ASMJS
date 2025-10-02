@@ -4,8 +4,8 @@ const products = [
         id: 1,
         name: 'Laptop Gaming Asus ROG Strix G15',
         price: 25990000,
-        image: 'images/laptop1.jpg.svg',
-        images: ['images/laptop1.jpg.svg', 'images/laptop1.jpg.svg'],
+        image: 'images/sp.jpg',
+        images: ['images/sp.jpg', 'images/sp.jpg'],
         description: 'Laptop gaming hiệu năng cao với card đồ họa RTX 3060.',
         category: 'laptop',
         specifications: {
@@ -22,7 +22,7 @@ const products = [
         id: 2,
         name: "Điện thoại iPhone 14 Pro",
         price: 27990000,
-        image: "images/iphone-14-pro.jpg.svg",
+        image: "images/sp.jpg",
         description: "Điện thoại cao cấp với chip A16 Bionic, camera 48MP, màn hình Dynamic Island",
         category: "smartphone",
         specifications: {
@@ -35,16 +35,16 @@ const products = [
             weight: "206g"
         },
         images: [
-            "images/iphone-14-pro.jpg.svg",
-            "images/iphone-14-pro.jpg.svg",
-            "images/iphone-14-pro.jpg.svg"
+            "images/sp.jpg",
+            "images/sp.jpg",
+            "images/sp.jpg"
         ]
     },
     {
         id: 3,
         name: "Laptop MacBook Air M2",
         price: 32990000,
-        image: "images/macbook-air-m2.jpg.svg",
+        image: "images/sp.jpg",
         description: "Laptop mỏng nhẹ với chip M2, màn hình Liquid Retina, thời lượng pin lên đến 18 giờ",
         category: "laptop",
         specifications: {
@@ -57,16 +57,16 @@ const products = [
             weight: "1.24 kg"
         },
         images: [
-            "images/macbook-air-m2.jpg.svg",
-            "images/macbook-air-m2.jpg.svg",
-            "images/macbook-air-m2.jpg.svg"
+            "images/sp.jpg",
+            "images/sp.jpg",
+            "images/sp.jpg"
         ]
     },
     {
         id: 4,
         name: "Điện thoại Samsung Galaxy S23 Ultra",
         price: 25990000,
-        image: "images/samsung-galaxy-s23.jpg.svg",
+        image: "images/sp.jpg",
         description: "Điện thoại cao cấp với camera 200MP, bút S-Pen, màn hình Dynamic AMOLED 2X",
         category: "smartphone",
         specifications: {
@@ -79,16 +79,16 @@ const products = [
             weight: "233g"
         },
         images: [
-            "images/samsung-galaxy-s23.jpg.svg",
-            "images/samsung-galaxy-s23.jpg.svg",
-            "images/samsung-galaxy-s23.jpg.svg"
+            "images/sp.jpg",
+            "images/sp.jpg",
+            "images/sp.jpg"
         ]
     },
     {
         id: 5,
         name: "Tai nghe Apple AirPods Pro 2",
         price: 6790000,
-        image: "images/airpods-pro-2.jpg.svg",
+        image: "images/sp.jpg",
         description: "Tai nghe không dây với chống ồn chủ động, âm thanh không gian, chip H2",
         category: "accessories",
         specifications: {
@@ -101,16 +101,16 @@ const products = [
             weight: "5.3g (mỗi tai nghe)"
         },
         images: [
-            "images/airpods-pro-2.jpg.svg",
-            "images/airpods-pro-2.jpg.svg",
-            "images/airpods-pro-2.jpg.svg"
+            "images/sp.jpg",
+            "images/sp.jpg",
+            "images/sp.jpg"
         ]
     },
     {
         id: 6,
         name: "Laptop Asus ROG Zephyrus G14",
         price: 35990000,
-        image: "images/asus-rog-g14.jpg.svg",
+        image: "images/sp.jpg",
         description: "Laptop gaming mỏng nhẹ với AMD Ryzen 9, NVIDIA RTX 3060, màn hình 14 inch 144Hz",
         category: "laptop",
         specifications: {
@@ -123,16 +123,16 @@ const products = [
             weight: "1.65 kg"
         },
         images: [
-            "images/asus-rog-g14.jpg.svg",
-            "images/asus-rog-g14.jpg.svg",
-            "images/asus-rog-g14.jpg.svg"
+            "images/sp.jpg",
+            "images/sp.jpg",
+            "images/sp.jpg"
         ]
     },
     {
         id: 7,
         name: "Điện thoại Google Pixel 7 Pro",
         price: 19990000,
-        image: "images/google-pixel-7-pro.jpg.svg",
+        image: "images/sp.jpg",
         description: "Điện thoại với camera hàng đầu, chip Google Tensor G2, màn hình LTPO OLED 120Hz",
         category: "smartphone",
         specifications: {
@@ -145,16 +145,16 @@ const products = [
             weight: "212g"
         },
         images: [
-            "images/google-pixel-7-pro.jpg.svg",
-            "images/google-pixel-7-pro.jpg.svg",
-            "images/google-pixel-7-pro.jpg.svg"
+            "images/sp.jpg",
+            "images/sp.jpg",
+            "images/sp.jpg"
         ]
     },
     {
         id: 8,
         name: "Chuột gaming Logitech G Pro X Superlight",
         price: 2990000,
-        image: "images/logitech-g-pro-x.jpg.svg",
+        image: "images/sp.jpg",
         description: "Chuột gaming không dây siêu nhẹ chỉ 63g, cảm biến HERO 25K, thời lượng pin 70 giờ",
         category: "accessories",
         specifications: {
@@ -166,9 +166,9 @@ const products = [
             weight: "63g"
         },
         images: [
-            "images/logitech-g-pro-x.jpg.svg",
-            "images/logitech-g-pro-x.jpg.svg",
-            "images/logitech-g-pro-x.jpg.svg"
+            "images/sp.jpg",
+            "images/sp.jpg",
+            "images/sp.jpg"
         ]
     }
 ];
@@ -226,12 +226,3 @@ function sortProducts(productsList, sortType) {
     return sortedProducts;
 }
 
-// Export các hàm và dữ liệu
-if (typeof window !== 'undefined') {
-    window.products = products;
-    window.formatCurrency = formatCurrency;
-    window.getProductById = getProductById;
-    window.getProductsByCategory = getProductsByCategory;
-    window.getRelatedProducts = getRelatedProducts;
-    window.sortProducts = sortProducts;
-}

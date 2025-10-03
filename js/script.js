@@ -152,18 +152,12 @@ function createProductCard(product) {
         this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.2)';
     });
     
-    productCard.addEventListener('mouseout', function() {
-        this.style.transform = 'translateY(0)';
-        this.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-    });
-    
     // Thêm sự kiện click để chuyển đến trang chi tiết
     productCard.addEventListener('click', function(e) {
         if (!e.target.classList.contains('btn')) {
             window.location.href = `product-detail.html?id=${product.id}`;
         }
     });
-    
     return productCard;
 }
 
@@ -192,7 +186,6 @@ function loadProductDetail() {
     
     if (!productDetailContainer) return;
     
-    // Lấy ID sản phẩm từ URL
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('id');
     
@@ -201,7 +194,6 @@ function loadProductDetail() {
         return;
     }
     
-    // Lấy thông tin sản phẩm
     const product = getProductById(parseInt(productId));
     
     if (!product) {
@@ -209,10 +201,8 @@ function loadProductDetail() {
         return;
     }
     
-    // Cập nhật tiêu đề trang
-    document.title = `${product.name} - TechStore`;
+    document.title = `${product.name} - CellPhones`;
     
-    // Cập nhật tên sản phẩm trong breadcrumb
     if (productName) {
         productName.textContent = product.name;
     }
@@ -270,18 +260,6 @@ function loadProductDetail() {
         specsHTML += '</table>';
         productSpecifications.innerHTML = specsHTML;
     }
-    
-    // Hiển thị sản phẩm liên quan
-    if (relatedProductsContainer) {
-        const relatedProducts = getRelatedProducts(productId);
-        
-        relatedProductsContainer.innerHTML = '';
-        
-        relatedProducts.forEach(product => {
-            const productCard = createProductCard(product);
-            relatedProductsContainer.appendChild(productCard);
-        });
-    }
 }
 
 // Hàm thiết lập sự kiện cho trang chi tiết sản phẩm
@@ -337,9 +315,7 @@ function setupProductDetailEvents() {
             const quantity = parseInt(quantityInput.value);
             
             addToCart(productId, quantity);
-            
-            // Hiển thị thông báo
-            alert('Đã thêm sản phẩm vào giỏ hàng!');
+                        alert('Đã thêm sản phẩm vào giỏ hàng!');
             
             // Cập nhật số lượng sản phẩm trong giỏ hàng
             updateCartCount();
@@ -423,7 +399,6 @@ function updateCartCount() {
     }
 }
 
-// Hàm tải các sản phẩm trong giỏ hàng
 function loadCartItems() {
     const cartContainer = document.getElementById('cart-container');
     const cartSummary = document.getElementById('cart-summary');
@@ -437,7 +412,6 @@ function loadCartItems() {
         cartContainer.innerHTML = `
             <div class="empty-cart">
                 <p>Giỏ hàng của bạn đang trống.</p>
-                <a href="products.html" class="btn">Tiếp tục mua sắm</a>
             </div>
         `;
         cartSummary.innerHTML = '';
@@ -792,32 +766,3 @@ function isValidPhone(phone) {
     return phoneRegex.test(phone);
 }
 
-// Hàm khởi tạo bản đồ
-function initializeMap() {
-    // Trong thực tế, đây là nơi khởi tạo bản đồ với API như Google Maps
-    // Nhưng trong bài tập này, chúng ta chỉ hiển thị hình ảnh tĩnh
-    
-    // Nếu muốn sử dụng Geolocation API
-    const mapContainer = document.getElementById('map');
-    
-    if (mapContainer && navigator.geolocation) {
-        // Hiển thị vị trí người dùng
-        navigator.geolocation.getCurrentPosition(function(position) {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
-            
-            // Hiển thị thông báo
-            const locationInfo = document.createElement('div');
-            locationInfo.className = 'location-info';
-            locationInfo.innerHTML = `
-                <p>Vị trí của bạn:</p>
-                <p>Vĩ độ: ${latitude}</p>
-                <p>Kinh độ: ${longitude}</p>
-            `;
-            
-            mapContainer.appendChild(locationInfo);
-        }, function(error) {
-            console.error('Lỗi khi lấy vị trí:', error);
-        });
-    }
-}

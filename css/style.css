@@ -162,6 +162,54 @@ nav ul li a:hover, nav ul li a.active {
     margin-right: auto;
 }
 
+.flash-sale {
+    margin-top: 20px;
+}
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+.countdown-item {
+    background-color: rgba(255,255,255,0.12);
+    padding: 20px 24px;
+    border-radius: 6px;
+    min-width: 60px;
+}
+.countdown-item span {
+    display: block;
+    color: white;
+}
+.countdown-item span:first-child {
+    font-size: 25px;
+    font-weight: 700;
+}
+.countdown-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.flash-sale-section {
+    padding: 20px 0;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flash-sale {
+    background-color: rgb(253, 52, 52);
+    color: white;
+    padding: 18px 22px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    max-width: 320px;
+    width: 500px;
+}
+
 /* Featured Products */
 .featured-products, .products-section {
     padding: 30px;
@@ -681,7 +729,6 @@ footer {
     object-fit: cover;
 }
 
-/* Camera styles */
 .camera-container {
     margin-top: 10px;
 }
@@ -714,7 +761,6 @@ footer {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Responsive Design */
 @media (max-width: 992px) {
     .product-detail-container {
         grid-template-columns: 1fr;

@@ -36,6 +36,7 @@ function loadPageContent(page) {
     switch (page) {
         case 'home':
             loadFeaturedProducts();
+            startFlashSaleCountdown(120); // bắt đầu countdown 2 phút trên home
             break;
         case 'products':
             loadAllProducts();
@@ -50,7 +51,6 @@ function loadPageContent(page) {
             break;
         case 'contact':
             setupContactForm();
-            initializeMap();
             break;
     }
 }
@@ -564,12 +564,15 @@ function removeCartItem(productId) {
 // Hàm thiết lập form liên hệ
 function setupContactForm() {
     const contactForm = document.getElementById('contact-form');
-    
+
     if (!contactForm) return;
-    
+
+    // Thêm: lấy vị trí người dùng và chèn vào form
+    getAndFillGeolocation(contactForm);
+
     // Thiết lập chức năng camera
     setupCamera();
-    
+
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
@@ -764,5 +767,98 @@ function isValidEmail(email) {
 function isValidPhone(phone) {
     const phoneRegex = /(84|0[3|5|7|8|9])+([0-9]{8})\b/;
     return phoneRegex.test(phone);
+}
+
+// --- FLASH SALE COUNTDOWN ---
+// durationSeconds: số giây đếm ngược (mặc định 120s)
+function startFlashSaleCountdown(durationSeconds = 120) {
+    const minutesEl = document.getElementById('fs-minutes');
+    const secondsEl = document.getElementById('fs-seconds');
+    if (!minutesEl || !secondsEl) return;
+
+    const endTime = Date.now() + durationSeconds * 1000;
+
+    // cập nhật ngay lập tức
+    updateCountdown();
+
+    const intervalId = setInterval(updateCountdown, 500);
+
+    function updateCountdown() {
+        const remaining = Math.max(0, Math.floor((endTime - Date.now()) / 1000));
+        const mins = Math.floor(remaining / 60);
+        const secs = remaining % 60;
+
+        minutesEl.textContent = String(mins).padStart(2, '0');
+        secondsEl.textContent = String(secs).padStart(2, '0');
+
+        if (remaining <= 0) {
+            clearInterval(intervalId);
+            // khi hết thời gian có thể ẩn hoặc hiển thị thông báo
+            const flash = document.querySelector('.flash-sale');
+            if (flash) {
+                flash.innerHTML = '<strong>Flash Sale đã kết thúc</strong>';
+            }
+        }
+    }
+}
+
+// Hàm lấy vị trí người dùng và chèn vào form liên hệ
+function getAndFillGeolocation(formElement) {
+    // tạo ô hiển thị tóm tắt vị trí nếu chưa có
+    let locationInfo = document.getElementById('location-info');
+    if (!locationInfo) {
+        locationInfo = document.createElement('div');
+        locationInfo.id = 'location-info';
+        locationInfo.style.marginTop = '10px';
+        locationInfo.style.fontSize = '0.9rem';
+        locationInfo.style.color = '#333';
+        formElement.appendChild(locationInfo);
+    }
+
+    // tạo input ẩn để gửi vị trí cùng form nếu chưa có
+    let hiddenLocation = document.getElementById('location');
+    if (!hiddenLocation) {
+        hiddenLocation = document.createElement('input');
+        hiddenLocation.type = 'hidden';
+        hiddenLocation.id = 'location';
+        hiddenLocation.name = 'location';
+        formElement.appendChild(hiddenLocation);
+    }
+
+    if (!navigator.geolocation) {
+        locationInfo.textContent = 'Trình duyệt không hỗ trợ Geolocation.';
+        hiddenLocation.value = '';
+        return;
+    }
+
+    locationInfo.textContent = 'Đang lấy vị trí...';
+
+    const geoOptions = {
+        enableHighAccuracy: true,
+        timeout: 8000,
+        maximumAge: 0
+    };
+
+    navigator.geolocation.getCurrentPosition(function(position) {
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+        hiddenLocation.value = `${lat},${lng}`;
+        locationInfo.textContent = `Vị trí: ${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+    }, function(error) {
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                locationInfo.textContent = 'Người dùng từ chối truy cập vị trí.';
+                break;
+            case error.POSITION_UNAVAILABLE:
+                locationInfo.textContent = 'Không thể lấy vị trí.';
+                break;
+            case error.TIMEOUT:
+                locationInfo.textContent = 'Yêu cầu vị trí hết thời gian chờ.';
+                break;
+            default:
+                locationInfo.textContent = 'Lỗi khi lấy vị trí.';
+        }
+        hiddenLocation.value = '';
+    }, geoOptions);
 }
 
